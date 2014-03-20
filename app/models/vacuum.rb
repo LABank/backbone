@@ -4,7 +4,6 @@ class Vacuum
     @file_path = file_path
   end
   def start
-    puts 'allo'
     workbook = RubyXL::Parser.parse(@file_path)
     journal = []
     rows = workbook[0].sheet_data.rows
