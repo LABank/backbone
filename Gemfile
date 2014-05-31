@@ -3,12 +3,15 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 gem 'awesome_print'
+gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'devise'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'rubyXL'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
+gem 'slim-rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
@@ -19,7 +22,7 @@ end
 
 group :test, :development do
   gem 'launchy'
-  gem "rspec-rails"
+  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'cucumber-rails', :require => false
