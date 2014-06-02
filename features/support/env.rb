@@ -5,6 +5,14 @@
 # files.
 
 require 'cucumber/rails'
+require 'capybara/poltergeist'
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, debug: false)
+end
+
+Capybara.javascript_driver = :poltergeist
+Capybara.current_driver = :poltergeist
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -56,3 +64,21 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+
+module Authentication
+  include Warden::Test::Helpers
+
+  def sign_out
+    logout
+  end
+
+  def sign_in(user)
+    sign_out
+    visit(new_maker_session_path)
+    fill_in 'maker_email', with: user.email
+    fill_in 'maker_password', with: user.password
+    click_button 'Sign in'
+  end
+end
+
+World(Authentication)
