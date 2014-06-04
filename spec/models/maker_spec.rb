@@ -7,6 +7,7 @@ describe Maker do
   end
 
   it { should have_many :memberships}
+  it { should have_many :credentials}
   it { should respond_to :administrator}
   it { should validate_presence_of :first_name}
   it { should validate_presence_of :last_name}

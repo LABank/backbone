@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602191444) do
+ActiveRecord::Schema.define(version: 20140604183804) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "uid"
+    t.integer  "balance"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["uid"], name: "index_accounts_on_uid"
+
+  create_table "credentials", force: true do |t|
+    t.integer  "maker_id"
+    t.integer  "account_id"
+    t.string   "right"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "entities", force: true do |t|
     t.string   "name"
@@ -67,5 +85,29 @@ ActiveRecord::Schema.define(version: 20140602191444) do
 
   add_index "memberships", ["entity_id"], name: "index_memberships_on_entity_id"
   add_index "memberships", ["maker_id"], name: "index_memberships_on_maker_id"
+
+  create_table "records", force: true do |t|
+    t.integer  "account_id"
+    t.text     "description"
+    t.integer  "amount"
+    t.integer  "wire_transfer_id"
+    t.date     "day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "records", ["account_id"], name: "index_records_on_account_id"
+  add_index "records", ["wire_transfer_id"], name: "index_records_on_wire_transfer_id"
+
+  create_table "transfers", force: true do |t|
+    t.integer  "source_id"
+    t.integer  "destination_id"
+    t.integer  "maker_id"
+    t.integer  "amount"
+    t.text     "description"
+    t.date     "day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
