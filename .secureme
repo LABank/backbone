@@ -1,0 +1,3 @@
+rails: secret_key_base
+devise: secret_key
+db: credentials
