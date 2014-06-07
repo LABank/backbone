@@ -1,15 +1,18 @@
 
 Given(/^a maker having (\d+)<> on his account$/) do |balance|
   @maker = FactoryGirl.create(:maker)
-  @maker.accounts.first.balance = balance
+  @account = @maker.accounts.first
+  @account.balance = balance
+  @account.save
+  sign_in @maker
 end
 
 When(/^I go the the accounts page$/) do
-  pending
+  visit(accounts_path)
 end
 
 Then(/^I see my account with (\d+)<>$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  page.should have_selector '.balance', text: '100<>'
 end
 
 Given(/^a maker Alice$/) do

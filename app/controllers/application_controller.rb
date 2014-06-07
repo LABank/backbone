@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => t('messages.forbidden')
+  end
 end

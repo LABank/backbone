@@ -1,0 +1,6 @@
+h1 Liste des comptes
+ul.accounts
+- @accounts.each do |account|
+  li.account
+    .name= account.name
+    .balance= "#{account.balance}<>"
