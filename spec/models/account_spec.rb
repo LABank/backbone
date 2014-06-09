@@ -12,4 +12,10 @@ describe Account do
     account.uid.should eq("bidule")
   end
 
+  it 'should have a unique uid' do
+    first = FactoryGirl.create(:account, uid: "bidule")
+    second = FactoryGirl.build(:account, uid: "bidule")
+    second.should_not be_valid
+  end
+
 end

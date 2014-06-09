@@ -6,7 +6,9 @@ Feature: Wire transfer
   Scenario: Alice and Bob
     Given a maker Alice
     And a maker Bob
-    When Alice sends 100<> to Bob
+    When Alice start a new transfer
+    And provides the amout, the destination account and the description
+    And she validates the transfer
     Then Bob's account is increased by 100<>
     And Alice's account is decreased by 100<>
 

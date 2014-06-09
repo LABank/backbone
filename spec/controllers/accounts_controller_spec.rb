@@ -8,15 +8,15 @@ describe AccountsController do
     end
   end
   context 'when signed in' do
-  before :each do
-    @maker = FactoryGirl.create(:maker)
-    sign_in @maker
-  end
-  describe 'index' do 
-    it 'should assign @accounts' do
-       get :index
-       assigns(:accounts).should eq(@maker.accounts)
+    before :each do
+      @maker = FactoryGirl.create(:maker)
+      sign_in @maker
     end
-  end
+    describe 'index' do 
+      it 'should assign @accounts' do
+         get :index
+         assigns(:accounts).should eq(@maker.accounts)
+      end
+    end
   end
 end
