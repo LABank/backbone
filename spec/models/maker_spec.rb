@@ -22,6 +22,7 @@ describe Maker do
     maker = FactoryGirl.create(:maker)
     maker.accounts.size.should eq(1)
     maker.credentials.first.right.should eq('write')
+    maker.accounts.first.balance.should eq(0)
   end
    
 end
