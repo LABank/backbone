@@ -6,5 +6,6 @@ class Account < ActiveRecord::Base
 
   before_create do
     self.uid ||= SecureRandom.hex(3)
+    self.balance ||= 0
   end
 end
