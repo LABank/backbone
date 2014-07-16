@@ -28,8 +28,8 @@ describe TransfersController do
       let(:bob) {FactoryGirl.create(:maker)}
       let(:bob_account) { bob.accounts.first }
       before :each do
-        post :create, transfer: {source_account_uid: alice_account.uid,
-                                 destination_account_uid: bob_account.uid,
+        post :create, transfer: {source: alice_account.uid,
+                                 destination: bob_account.uid,
                                  amount: 100
                                 }
       end
@@ -40,7 +40,7 @@ describe TransfersController do
         transfer = assigns(:transfer)
         transfer.amount.should eq(100)
         transfer.source.should eq(alice_account)
-        transfer.destiantion.should eq(bob_account)
+        transfer.destination.should eq(bob_account)
       end
       it 'should redirect_to the account page' do
         response.should redirect_to accounts_path
