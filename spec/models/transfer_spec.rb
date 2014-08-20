@@ -4,6 +4,10 @@ describe Transfer do
   it {should belong_to :source}  
   it {should belong_to :destination}  
   it {should belong_to :maker}  
+  it "should have a valid factory" do
+    transfer = FactoryGirl.create(:transfer)
+    transfer.should be_valid
+  end
 
   describe 'validity' do 
     it 'should inforce positive amount'
@@ -11,5 +15,27 @@ describe Transfer do
     it 'must have a valid destination'
   end
   it 'should auto assign the current date as day if not provided upon creation'
-  it 'should create the corresponding records'
+  it 'should create the corresponding records' do
+    expect {
+      FactoryGirl.create(:transfer)
+    }.to change {Record.count}.by(2)
+  end
+
+  it 'should copy the details to the destination' do   
+    t = FactoryGirl.create(:transfer)
+    record = Record.last
+    record.description.should eq(t.description)
+    record.amount.should eq(t.amount)
+    record.account_id.should eq(t.destination_id)
+    record.day.should eq(t.day)
+  end
+
+  it 'should copy the details to the source' do   
+    t = FactoryGirl.create(:transfer)
+    record = Record.all[-2]
+    record.description.should eq(t.description)
+    record.amount.should eq(-t.amount)
+    record.account_id.should eq(t.source_id)
+    record.day.should eq(t.day)
+  end
 end

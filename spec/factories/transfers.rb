@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :transfer do
-    source_account_id 1
-    destination_account_id 1
-    maker_id 1
+    association :source, factory: :account
+    association :destination, factory: :account
+    maker
     amount 1
     description "MyText"
     day "2014-06-04"
