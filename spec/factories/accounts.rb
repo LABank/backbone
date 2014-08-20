@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :account do
-    uid "MyString"
     balance 1
     name "MyString"
   end

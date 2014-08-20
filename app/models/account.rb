@@ -8,4 +8,12 @@ class Account < ActiveRecord::Base
     self.uid ||= SecureRandom.hex(3)
     self.balance ||= 0
   end
+  
+  validate :check_uid
+
+  def check_uid
+    if Account.find_by_uid(self.uid)
+      errors.add(:uid, "UID must be unique")
+    end
+  end
 end
