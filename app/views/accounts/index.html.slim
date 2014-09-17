@@ -1,7 +1,11 @@
-h1 Liste des comptes
-=link_to 'Nouveau transfer', new_transfer_path, id: 'new_transfer'
+header
+  h1 Accounts list
+  .actions  
+    = link_to 'New transfer', new_transfer_path, id: 'new_transfer', class: 'btn btn-success'
 ul.accounts
 - @accounts.each do |account|
-  li.account
-    .name= account.name
-    .balance= "#{account.balance}<>"
+  .panel.panel-default 
+    .panel-body
+      li.account
+        .name= account.name
+        .balance= "#{account.balance}<>"
