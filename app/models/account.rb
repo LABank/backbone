@@ -12,7 +12,7 @@ class Account < ActiveRecord::Base
   validate :check_uid
 
   def check_uid
-    if Account.find_by_uid(self.uid)
+    if Account.where.not(id: self.id).find_by_uid(self.uid)
       errors.add(:uid, "UID must be unique")
     end
   end
