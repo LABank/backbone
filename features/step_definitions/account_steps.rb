@@ -27,14 +27,14 @@ When(/^Alice start a new transfer$/) do
 end
 
 When(/^provides the amount, the destination account and the description$/) do
-  fill_in 'transfer_source', with: @alice.accounts.first.uid
+  select @alice.accounts.first.name
   fill_in 'transfer_amount', with: '100'
   fill_in 'transfer_destination', with: @bob.accounts.first.uid
   fill_in 'transfer_description', with: 'Just do it' 
 end
 
 When(/^she validates the transfer$/) do
-   click_button 'Valider'
+   click_button 'Send'
 end
 
 Then(/^I see my account with (\d+)<>$/) do |arg1|

@@ -3,7 +3,8 @@
   .form-group
     label for="transfer_source" class="col-sm-2 control-label" Source
     .col-sm-10
-      = f.text_field :source, class: 'form-control', id: 'transfer_source'
+      select.form-control name="transfer[source]" id="transfer_source"
+        = options_for_select current_maker.accounts.map {|a| [a.name, a.uid]}
   .form-group
     label for="transfer_destination" class="col-sm-2 control-label" Destination
     .col-sm-10
