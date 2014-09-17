@@ -28,6 +28,7 @@ describe Transfer do
     record.amount.should eq(t.amount)
     record.account_id.should eq(t.destination_id)
     record.day.should eq(t.day)
+    record.wire_transfer_id.should eq(t.id)
   end
 
   it 'should copy the details to the source' do   
@@ -37,5 +38,6 @@ describe Transfer do
     record.amount.should eq(-t.amount)
     record.account_id.should eq(t.source_id)
     record.day.should eq(t.day)
+    record.wire_transfer_id.should eq(t.id)
   end
 end

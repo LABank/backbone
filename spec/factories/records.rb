@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :record do
-    account_id 1
+    account
     description "MyText"
     amount 1
     wire_transfer_id 1
