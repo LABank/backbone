@@ -5,8 +5,8 @@ ActiveAdmin.register Membership do
     selectable_column
     id_column
     column :date
-    column :entity_id
-    column :maker_id
+    column :entity
+    column :maker
     actions
   end
 
