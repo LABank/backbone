@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
 
-gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'activeadmin'
 gem 'awesome_print'
 gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
@@ -13,8 +13,6 @@ gem 'rubyXL'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
-gem 'simple_form'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 #gem "meta_search",    '>= 1.1.0.pre'
 

@@ -1,6 +1,21 @@
-= simple_form_for @transfer do |f|
-  = f.input :amount
-  = f.input :source
-  = f.input :destination
-  = f.input :description
-  = f.submit 'Valider'
+
+= form_for @transfer, :html => {class: "form-horizontal", role: "form"} do |f|
+  .form-group
+    label for="transfer_source" class="col-sm-2 control-label" Source
+    .col-sm-10
+      = f.text_field :source, class: 'form-control', id: 'transfer_source'
+  .form-group
+    label for="transfer_destination" class="col-sm-2 control-label" Destination
+    .col-sm-10
+      = f.text_field :destination, class: 'form-control', id: 'transfer_destination'
+  .form-group
+    label for="transfer_description" class="col-sm-2 control-label" Description
+    .col-sm-10
+      = f.text_field :description, class: 'form-control', id: 'transfer_description'
+  .form-group
+    label for="transfer_amount" class="col-sm-2 control-label" Amount
+    .col-sm-10
+      = f.text_field :amount, class: 'form-control', id: 'transfer_amount'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Send', class: "btn btn-default"
