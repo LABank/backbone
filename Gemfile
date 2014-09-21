@@ -10,7 +10,6 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'rubyXL'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -23,6 +22,7 @@ end
 
 group :test, :development do
   gem 'launchy'
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
@@ -35,4 +35,8 @@ group :test, :development do
   gem 'zeus'
   gem 'quiet_assets'
   gem 'faker'
+end
+
+group :production do
+  gem 'pg'
 end
