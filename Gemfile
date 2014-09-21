@@ -15,6 +15,7 @@ gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 #gem "meta_search",    '>= 1.1.0.pre'
 
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -39,4 +40,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
