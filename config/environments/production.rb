@@ -78,6 +78,16 @@ BackboneLabank::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = { host: 'localhost:3000'}
+  config.action_mailer.default_url_options = { host: 'nutsbank.heroku.com'}
 
+  config.action_mailer.smtp_settings = {
+      :address  => ENV['POSTMARK_SMTP_SERVER'],
+      :port  => 25,
+      :user_name  => ENV['POSTMARK_API_KEY'],
+      :password  => ENV['POSTMARK_API_KEY'],
+      :authentication  => :plain,
+      :enable_starttls_auto => true,
+    }
+
+  config.action_mailer.delivery_method = :smtp
 end
