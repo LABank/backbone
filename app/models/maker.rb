@@ -1,8 +1,9 @@
 class Maker < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :confirmable, :lockable,
+         :recoverable, :rememberable, :trackable#, :validatable, :registerable
+  
   has_many :memberships, dependent: :destroy
   has_many :credentials, dependent: :destroy, inverse_of: :maker
   has_many :accounts, through: :credentials
