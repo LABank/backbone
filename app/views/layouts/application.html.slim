@@ -17,10 +17,15 @@ html
           ul.nav.navbar-nav
             li
               a href="#{accounts_path}" My accounts
-          - if current_maker.administrator?
-            ul.nav.navbar-nav
+            - if current_maker.administrator?
               li
                 = link_to 'Admin', '/admin', id: 'admin-section'
+            li
+              = link_to 'Logout', destroy_maker_session_path, method: :delete
+        - else
+          ul.nav.navbar-nav
+            li
+              = link_to 'Login', new_maker_session_path
 
     .container
       p.notice= notice
