@@ -30,7 +30,8 @@ describe TransfersController do
       before :each do
         post :create, transfer: {source: alice_account.uid,
                                  destination: bob_account.uid,
-                                 amount: 100
+                                 amount: 100,
+                                 description: "This is the description"
                                 }
       end
       it 'should create a valid transfer' do
@@ -44,6 +45,7 @@ describe TransfersController do
         transfer.amount.should eq(100)
         transfer.source.should eq(alice_account)
         transfer.destination.should eq(bob_account)
+        transfer.description.should eq("This is the description")
       end
       it 'should redirect_to the account page' do
         response.should redirect_to accounts_path

@@ -32,7 +32,8 @@ class TransfersController < ApplicationController
 
       if credential && credential.right == 'write'
         amount = permitted_params[:amount]
-        @transfer = Transfer.create(source: source, destination: destination, amount: amount, day: Date.today)
+        description = permitted_params[:description]
+        @transfer = Transfer.create(source: source, destination: destination, amount: amount, day: Date.today, description: description)
         redirect_to accounts_path
       else
         flash[:error] = "You don't have the permission to access this account"
@@ -43,6 +44,6 @@ class TransfersController < ApplicationController
 
   private    
     def permitted_params
-      params.require(:transfer).permit(:amount, :source, :destination)
+      params.require(:transfer).permit(:amount, :source, :destination, :description)
     end
 end
