@@ -10,7 +10,11 @@ describe Transfer do
   end
 
   describe 'validity' do 
-    it 'should inforce positive amount'
+    it 'should inforce positive amount' do
+      FactoryGirl.build(:transfer, amount: 10).should be_valid
+      FactoryGirl.build(:transfer, amount: -10).should_not be_valid
+    end
+    
     it 'must have a valid source'
     it 'must have a valid destination'
   end
