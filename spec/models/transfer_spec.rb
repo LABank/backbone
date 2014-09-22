@@ -18,7 +18,7 @@ describe Transfer do
     it 'must have a valid source'
     it 'must have a valid destination'
   end
-  it 'should auto assign the current date as day if not provided upon creation'
+  
   it 'should create the corresponding records' do
     expect {
       FactoryGirl.create(:transfer)
