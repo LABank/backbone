@@ -38,7 +38,7 @@ When(/^she validates the transfer$/) do
 end
 
 Then(/^I see my account with (\d+)<>$/) do |arg1|
-  page.should have_selector '.balance', text: '100<>'
+  page.should have_selector '.balance', text: '100 <>'
 end
 
 Then(/^Bob's account is increased by (\d+)<>$/) do |arg1|
