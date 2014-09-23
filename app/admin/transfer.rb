@@ -6,6 +6,7 @@ ActiveAdmin.register Transfer do
     column :day
     column :amount
     column :description
+    column :maker
   end
 
   filter :source
