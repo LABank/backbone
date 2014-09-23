@@ -46,6 +46,7 @@ describe TransfersController do
         transfer.source.should eq(alice_account)
         transfer.destination.should eq(bob_account)
         transfer.description.should eq("This is the description")
+        transfer.maker.should eq(alice)
       end
       it 'should redirect_to the account page' do
         response.should redirect_to accounts_path
