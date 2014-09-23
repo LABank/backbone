@@ -12,7 +12,9 @@ class Maker < ActiveRecord::Base
   def to_label
     "#{last_name} #{first_name}"
   end
- 
+  alias_method :name, :to_label
+  default_scope { order('last_name, first_name') }
+
   after_create :create_account
 
   def create_account

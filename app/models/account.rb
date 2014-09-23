@@ -10,7 +10,8 @@ class Account < ActiveRecord::Base
   end
   
   validate :check_uid
-
+  default_scope { order('name') }
+  
   def check_uid
     if Account.where.not(id: self.id).find_by_uid(self.uid)
       errors.add(:uid, "UID must be unique")
