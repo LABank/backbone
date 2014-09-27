@@ -11,6 +11,8 @@ ActiveAdmin.register Maker do
     actions
   end
 
+  filter :first_name
+  filter :last_name
   filter :email
 
   form do |f|
